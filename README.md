@@ -26,7 +26,7 @@ C. External Data. You may use data other than the Competition Data (“External 
 Se construirá un modelo que prediga con mayor precisión las ventas unitarias de miles de artículos vendidos en diferentes tiendas. Practicaremos nuestras habilidades de aprendizaje automático con un conjunto de datos.
 
 # Nuestro Plan de Analisis
-Link: https://docs.google.com/document/d/1tmQ7JMXrZ8Goj4j6U5SQN85s1fFLP23tuDbRu2HGQRs/edit?usp=sharing
+Link: [Plan de Análisis](https://docs.google.com/document/d/1tmQ7JMXrZ8Goj4j6U5SQN85s1fFLP23tuDbRu2HGQRs/edit?usp=sharing)
 
 
 
