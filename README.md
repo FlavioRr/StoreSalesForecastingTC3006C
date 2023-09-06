@@ -3,25 +3,23 @@ Repositorio para la clase de Inteligencia Artificial Equipo 5 Grupo 101.
 
 ***
 
-# Link de obtencion de datos via Kaggle: 
+## Link de obtencion de datos via Kaggle: 
 [Store Sales - Time Series Forecasting](https://www.kaggle.com/competitions/store-sales-time-series-forecasting/data)
 
-# Contexto de nuestra solucion: 
+## Contexto de nuestra solucion: 
+En esta competencia "Getting Started", se utilizarán pronósticos de series de tiempo para predecir las ventas de las tiendas basándose en datos de Corporación Favorita, un gran minorista de comestibles con sede en Ecuador.
 
-En esta competencia de “getting started”, utilizará pronósticos de series de tiempo para pronosticar las ventas de las tiendas basándose en datos de Corporación Favorita, un gran minorista de comestibles con sede en Ecuador.
+Específicamente, se creará un modelo que predice con mayor precisión las ventas unitarias de miles de artículos vendidos en diferentes tiendas Favorita. Se practicarán habilidades de aprendizaje automático con un conjunto de datos de capacitación accesible que incluye fechas, información de tiendas y artículos, promociones y ventas de unidades.
 
-Específicamente, creará un modelo que prediga con mayor precisión las ventas unitarias de miles de artículos vendidos en diferentes tiendas Favorita. Practicará sus habilidades de aprendizaje automático con un conjunto de datos de capacitación accesible que incluye fechas, información de tiendas y artículos, promociones y ventas de unidades.
-[Store Sales - Time Series Forecasting](https://www.kaggle.com/competitions/store-sales-time-series-forecasting/overview)
+## Nuestro Objetivo: 
+Se desarrollará un modelo con el objetivo de mejorar la precisión en la predicción de las ventas unitarias de miles de artículos vendidos en diversas tiendas. En este ejercicio, se pondrán en práctica habilidades relacionadas con el aprendizaje automático utilizando un conjunto de datos específico.
 
-# Nuestro Objetivo: 
-Se construirá un modelo que prediga con mayor precisión las ventas unitarias de miles de artículos vendidos en diferentes tiendas. Practicaremos nuestras habilidades de aprendizaje automático con un conjunto de datos.
-
-# Nuestro Plan de Analisis
+## Nuestro Plan de Analisis
 Link: [Plan de Análisis](https://docs.google.com/document/d/1tmQ7JMXrZ8Goj4j6U5SQN85s1fFLP23tuDbRu2HGQRs/edit?usp=sharing)
 
 ***
 
-# Contexto de Normatividades
+## Contexto de Normatividades
 
 COMPETITION DATA. "Competition Data" means the data or datasets available from the Competition Website for the purpose of use in the Competition, including any prototype or executable code provided on the Competition Website. The Competition Data will contain private and public test sets. Which data belongs to which set will not be made available to participants.
 
