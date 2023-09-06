@@ -4,7 +4,7 @@ Repositorio para la clase de Inteligencia Artificial Equipo 5 Grupo 101.
 ***
 
 # Link de obtencion de datos via Kaggle: 
-https://www.kaggle.com/competitions/store-sales-time-series-forecasting/data
+[Store Sales - Time Series Forecasting](https://www.kaggle.com/competitions/store-sales-time-series-forecasting/data)
 
 # Contexto de nuestra solucion: 
 
