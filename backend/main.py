@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-import logging #Captures errors and important events for flask.
+import logging  # Captures errors and important events for flask.
 import joblib
 import numpy as np
 
@@ -9,18 +9,18 @@ app = Flask(__name__)
 try:
     model = joblib.load('./templates/StoreSales.pkl')
 except FileNotFoundError:
-    logging.error("Model file 'linear_model.pkl' not found.")
+    logging.error("Model file 'StoreSales.pkl' not found.")
     raise SystemExit(1)
 
+
+@app.route('/predict', methods=['POST'])
 def predict():
     try:
-        input_data = request.json
+        input_data = request.get_json()
 
         # Validate input data
         if not input_data:
             return jsonify({'error': 'No input data provided'}), 400
-
-        # Perform input data validation here if needed
 
         input_features = preprocess_input_data(input_data)
 
@@ -28,17 +28,19 @@ def predict():
             return jsonify({'error': 'Invalid input data'}), 400
 
         prediction = model.predict(input_features)
+        
+        # Convert the NumPy array to a Python list
+        prediction_list = prediction.tolist()
 
-        return jsonify({'prediction': prediction[0]})
+        return jsonify({'prediction': prediction_list})
     except Exception as e:
         logging.exception("An error occurred during prediction.")
         return jsonify({'error': str(e)}), 500
 
+
 def preprocess_input_data(input_data):
     try:
-        # Define a list of keys expected in the input data
-        expected_keys = [
-            'date',
+        numeric_feature_keys = [
             'trend',
             'sin(1,freq=W-SUN)',
             'cos(1,freq=W-SUN)',
@@ -47,6 +49,9 @@ def preprocess_input_data(input_data):
             'sin(3,freq=W-SUN)',
             'cos(3,freq=W-SUN)',
             'Average_oil',
+        ]
+
+        categorical_feature_keys = [
             'week_day',
             'dayofweek_1',
             'dayofweek_2',
@@ -58,43 +63,35 @@ def preprocess_input_data(input_data):
             'type_Bridge',
             'type_Event',
             'type_Holiday',
-            'type_Transfer'
+            'type_Transfer',
+            'type_Work Day',
         ]
 
-        # Ensure all expected keys are present in the input data
-        if not all(key in input_data for key in expected_keys):
-            return None  # Return None for invalid input data
+        # Validate input data keys
+        if not all(key in input_data for key in numeric_feature_keys):
+            return None
 
-        # Convert input data into a NumPy array matching the model's input shape
-        input_features = np.array([
-            input_data['date'],
-            input_data['trend'],
-            input_data['sin(1,freq=W-SUN)'],
-            input_data['cos(1,freq=W-SUN)'],
-            input_data['sin(2,freq=W-SUN)'],
-            input_data['cos(2,freq=W-SUN)'],
-            input_data['sin(3,freq=W-SUN)'],
-            input_data['cos(3,freq=W-SUN)'],
-            input_data['Average_oil'],
-            input_data['week_day'],
-            input_data['dayofweek_1'],
-            input_data['dayofweek_2'],
-            input_data['dayofweek_3'],
-            input_data['dayofweek_4'],
-            input_data['dayofweek_5'],
-            input_data['dayofweek_6'],
-            input_data['type_Additional'],
-            input_data['type_Bridge'],
-            input_data['type_Event'],
-            input_data['type_Holiday'],
-            input_data['type_Transfer']
-        ]).reshape(1, -1)  # Reshape to match the model's input shape
+        # Extract and preprocess numeric features
+        numeric_features = [input_data[key] for key in numeric_feature_keys]
+
+        # Extract and preprocess categorical features
+        categorical_features = [input_data[key] for key in categorical_feature_keys]
+
+        # Convert categorical features to one-hot encoded format
+        categorical_encoded = np.array(categorical_features)
+
+        # Combine numeric and one-hot encoded categorical features
+        input_features = np.concatenate((numeric_features, categorical_encoded), axis=None)
+
+        # Reshape to a 2D array
+        input_features = input_features.reshape(1, -1)
 
         return input_features
 
     except Exception as e:
         logging.error(f"Error in preprocess_input_data: {str(e)}")
         return None
+
 
 if __name__ == '__main__':
     app.run(debug=True)
