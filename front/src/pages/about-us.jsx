@@ -11,7 +11,7 @@ const Aboutus = () => {
     <div
       className={`min-h-screen ${corporateColors.background} flex flex-col items-center justify-center px-14`}
     >
-      <h1 className="text-4xl font-bold text-center mb-8">
+      <h1 className="text-4xl font-bold text-center mb-8 mt-10">
         Acerca de Nosotros
       </h1>
       <div className="flex flex-col md:flex-row items-center justify-center mb-8">
@@ -48,44 +48,39 @@ const Aboutus = () => {
       </strong>
 
       <div className="flex">
-        <div className="w-1/2 p-2 ">
+
+        <div className="w-1/4 p-2 ">
           <div className="flex flex-col md:flex-row  mb-8">
-            <div className="w-12 md:w-24">
-              <img src={IA} className="rounded-full w-full h-auto shadow-lg" />
-            </div>
-            <p className="text-gray-700 text-lg ml-0 md:ml-8">
+            <strong className="text-gray-700 text-lg ml-0 md:ml-8">
               Flavio Ruvalcaba Leija
-            </p>
-          </div>
-
-          <div className="flex flex-col md:flex-row mb-8">
-            <div className="w-12 md:w-24">
-              <img src={IA} className="rounded-full w-full h-auto shadow-lg" />
-            </div>
-            <p className="text-gray-700 text-lg ml-0 md:ml-8">
-              Cristian Espinoza Diaz
-            </p>
+            </strong>
           </div>
         </div>
-        <div className="w-1/2 p-2 ">
-          <div className="flex flex-col md:flex-row items-center justify-center mb-8">
-            <div className="w-12 md:w-24">
-              <img src={IA} className="rounded-full w-full h-auto shadow-lg" />
-            </div>
-            <p className="text-gray-700 text-lg ml-0 md:ml-8">
+
+		<div className="w-1/4 p-2 ">
+          <div className="flex flex-col md:flex-row  mb-8">
+            <strong className="text-gray-700 text-lg ml-0 md:ml-8">
               Jaime Lopez Hernandez
-            </p>
-          </div>
-
-          <div className="flex flex-col md:flex-row items-center justify-center mb-8">
-            <div className="w-12 md:w-24">
-              <img src={IA} className="rounded-full w-full h-auto shadow-lg" />
-            </div>
-            <p className="text-gray-700 text-lg ml-0 md:ml-8">
-              Oscar Nieto Espitia
-            </p>
+            </strong>
           </div>
         </div>
+
+		<div className="w-1/4 p-2 ">
+          <div className="flex flex-col md:flex-row  mb-8">
+            <strong className="text-gray-700 text-lg ml-0 md:ml-8">
+              Cristian Espinoza Diaz
+            </strong>
+          </div>
+        </div>
+
+		<div className="w-1/4 p-2 ">
+          <div className="flex flex-col md:flex-row  mb-8">
+            <strong className="text-gray-700 text-lg ml-0 md:ml-8">
+              Oscar Nieto Espitia
+            </strong>
+          </div>
+        </div>
+
       </div>
     </div>
   );

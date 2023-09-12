@@ -11,24 +11,24 @@ const Navbar = () => {
           <div className="text-white text-2xl font-bold">Store Sales Forecasting</div>
           <ul className="flex space-x-6">
             <li>
-              <a
+              <button
                 className="text-white hover:text-gray-300 transition duration-300 ease-in-out"
 				onClick={() => {
 					navigate('/ProjectInfo');
 				}}
               >
                 Inicio
-              </a>
+              </button>
             </li>
             <li>
-              <a
+              <button
                 className="text-white hover:text-gray-300 transition duration-300 ease-in-out"
 				onClick={() => {
 					navigate('/About-us');
 				}}
               >
                 Acerca de Nosotros
-              </a>
+              </button>
             </li>
           </ul>
         </div>
