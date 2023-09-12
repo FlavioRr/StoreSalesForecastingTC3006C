@@ -14,7 +14,7 @@ const Navbar = () => {
               <button
                 className="text-white hover:text-gray-300 transition duration-300 ease-in-out"
 				onClick={() => {
-					navigate('/ProjectInfo');
+					navigate('/');
 				}}
               >
                 Inicio
