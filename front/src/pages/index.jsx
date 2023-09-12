@@ -1,8 +1,10 @@
 import React from 'react'
+import Navbar from '../components/Navbar'
 
 const Index = () => {
   
   return (
+
     <div className='flex flex-col p-12 w-full h-full pt-[5.5rem]'>
       <h1 className="text-2xl font-bold mb-3">Búsqueda Platillos</h1>
       {/* Filtros */}
