@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Index from "./pages/index";
+import ProjectInfo from "./pages/ProjectInfo";
 import Layout from "./components/Layout";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={ <Layout /> }>
-            <Route path="/index" element={ <Index /> } />
+            <Route path="/ProjectInfo" element={ <ProjectInfo /> } />
           </Route>
         </Routes>
       </BrowserRouter>

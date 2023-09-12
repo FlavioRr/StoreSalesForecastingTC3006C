@@ -1,23 +1,57 @@
-import React from 'react'
-import { IoIosAddCircleOutline, IoIosSearch } from "react-icons/io"
-import NavbarItem from './NavbarItem'
+import React from 'react';
 
 const Navbar = () => {
-
   return (
-    <nav className="flex gap-6 py-2 px-6 border-blue-200 bg-blue-500 fixed w-full">
-      <NavbarItem navigation="/">
-        <IoIosAddCircleOutline className='text-white text-2xl'/>
-      </NavbarItem>
-      <NavbarItem navigation="/dish-restaurant" >
-        <IoIosSearch className='text-white text-2xl' />
-      </NavbarItem>
+    <nav className="bg-gradient-to-r from-indigo-600 via-blue-600 to-blue-800 p-4 sticky top-0 z-10">
+      <div className="container mx-auto">
+        <div className="flex justify-between items-center">
+          <div className="text-white text-2xl font-bold">Mi Navegación</div>
+          <ul className="flex space-x-6">
+            <li>
+              <a
+                href="#"
+                className="text-white hover:text-gray-300 transition duration-300 ease-in-out"
+              >
+                Inicio
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="text-white hover:text-gray-300 transition duration-300 ease-in-out"
+              >
+                Servicios
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="text-white hover:text-gray-300 transition duration-300 ease-in-out"
+              >
+                Portafolio
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="text-white hover:text-gray-300 transition duration-300 ease-in-out"
+              >
+                Acerca de
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="text-white hover:text-gray-300 transition duration-300 ease-in-out"
+              >
+                Contacto
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
-  )
-}
+  );
+};
 
-
-
-export default Navbar
-
-
+export default Navbar;
