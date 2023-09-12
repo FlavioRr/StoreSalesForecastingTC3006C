@@ -1,60 +1,82 @@
-import React, { useState } from 'react';
-import ReactApexChart from 'react-apexcharts';
-import Form from '../components/Form';
+import React, { useState } from "react";
+import ReactApexChart from "react-apexcharts";
+import Form from "../components/Form";
 
 const corporateColors = {
-  background: 'bg-gray-200',
-  button: 'bg-gray-700 text-white hover:bg-gray-600',
+  background: "bg-gray-200",
+  button: "bg-gray-700 text-white hover:bg-gray-600",
 };
 
 const options = {
   chart: {
-    id: 'basic-bar',
+    id: "basic-bar",
   },
   xaxis: {
     categories: [
-      'AUTOMOTIVE', 'BABY CARE', 'BEAUTY', 'BEVERAGES', 'BOOKS', 'BREAD/BAKERY', 'CELEBRATION', 'CLEANING', 'DAIRY', 'DELI', 'EGGS', 'FROZEN FOODS', 'GROCERY', 'GROCERY II', 'HARDWARE', 'HOME AND KITCHEN I', 'HOME AND KITCHEN II', 'HOME APPLIANCES', 'HOME CARE', 'LADIESWEAR'
+      "AUTOMOTIVE",
+      "BABY CARE",
+      "BEAUTY",
+      "BEVERAGES",
+      "BOOKS",
+      "BREAD/BAKERY",
+      "CELEBRATION",
+      "CLEANING",
+      "DAIRY",
+      "DELI",
+      "EGGS",
+      "FROZEN FOODS",
+      "GROCERY",
+      "GROCERY II",
+      "HARDWARE",
+      "HOME AND KITCHEN I",
+      "HOME AND KITCHEN II",
+      "HOME APPLIANCES",
+      "HOME CARE",
+      "LADIESWEAR",
     ],
   },
   colors: [
-    '#FF5733',
-    '#33FF6E',
-    '#3366FF',
-    '#FF33A8',
-    '#FFFF33',
-    '#33FFFA',
-    '#FF3366',
-    '#33FF33',
-    '#FF5733',
-    '#33FF6E',
-    '#3366FF',
-    '#FF33A8',
-    '#FFFF33',
-    '#33FFFA',
-    '#FF3366',
-    '#33FF33',
-    '#FF5733',
-    '#33FF6E',
-    '#3366FF',
-    '#FF33A8',
+    "#FF5733",
+    "#33FF6E",
+    "#3366FF",
+    "#FF33A8",
+    "#FFFF33",
+    "#33FFFA",
+    "#FF3366",
+    "#33FF33",
+    "#FF5733",
+    "#33FF6E",
+    "#3366FF",
+    "#FF33A8",
+    "#FFFF33",
+    "#33FFFA",
+    "#FF3366",
+    "#33FF33",
+    "#FF5733",
+    "#33FF6E",
+    "#3366FF",
+    "#FF33A8",
   ],
 };
 
 const initialSeries = [
   {
-    name: 'Ventas',
-    data: [200, 300, 500, 200, 500, 50, 700, 300, 500, 500, 500, 100, 100, 500, 0, 20, 500, 500, 500, 500],
+    name: "Ventas",
+    data: [
+      200, 300, 500, 200, 500, 50, 700, 300, 500, 500, 500, 100, 100, 500, 0,
+      20, 500, 500, 500, 500,
+    ],
   },
 ];
 
 const ProjectInfo = () => {
-  const [chartType, setChartType] = useState('bar'); // Estado para el tipo de gráfico
+  const [chartType, setChartType] = useState("bar"); // Estado para el tipo de gráfico
   const [chartKey, setChartKey] = useState(0); // Estado para forzar la actualización del gráfico
 
   // Función para cambiar entre los tipos de gráficos
   const toggleChartType = () => {
     setChartKey(chartKey + 1);
-    setChartType(chartType === 'bar' ? 'line' : 'bar');
+    setChartType(chartType === "bar" ? "line" : "bar");
   };
 
   return (
@@ -64,7 +86,9 @@ const ProjectInfo = () => {
       </div>
       <div className="flex-1 p-6 rounded shadow-md bg-white">
         <div className="flex justify-between items-center">
-          <h1 className="text-3xl font-semibold mb-6">Análisis de Ventas ({chartType === 'line' ? 'Line' : 'Bar'})</h1>
+          <h1 className="text-3xl font-semibold mb-6">
+            Análisis de Ventas ({chartType === "line" ? "Line" : "Bar"})
+          </h1>
           <button
             className={`p-2 rounded ${corporateColors.button}`}
             onClick={toggleChartType}
