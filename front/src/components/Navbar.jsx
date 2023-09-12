@@ -1,6 +1,9 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+
+  const navigate = useNavigate();
   return (
     <nav className="bg-gradient-to-r from-indigo-600 via-blue-600 to-blue-800 p-4 sticky top-0 z-10">
       <div className="container mx-auto">
@@ -9,42 +12,22 @@ const Navbar = () => {
           <ul className="flex space-x-6">
             <li>
               <a
-                href="#"
                 className="text-white hover:text-gray-300 transition duration-300 ease-in-out"
+				onClick={() => {
+					navigate('/ProjectInfo');
+				}}
               >
                 Inicio
               </a>
             </li>
             <li>
               <a
-                href="#"
                 className="text-white hover:text-gray-300 transition duration-300 ease-in-out"
+				onClick={() => {
+					navigate('/About-us');
+				}}
               >
-                Servicios
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="text-white hover:text-gray-300 transition duration-300 ease-in-out"
-              >
-                Portafolio
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="text-white hover:text-gray-300 transition duration-300 ease-in-out"
-              >
-                Acerca de
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="text-white hover:text-gray-300 transition duration-300 ease-in-out"
-              >
-                Contacto
+                Acerca de Nosotros
               </a>
             </li>
           </ul>
