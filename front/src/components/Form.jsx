@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { handleSubmit } from "../queries/queryPredict";
 import { useForm, FormProvider } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { useFormContext } from "react-hook-form";
+import { InputForm } from "../components/InputForm";
 
 // Define los nombres y placeholders de los campos
 const inputFields = [
@@ -50,36 +50,36 @@ const inputFields = [
     value: 49.15428571428572,
   },
   { name: "week_day", placeholder: "week_day", type: Number, value: 0 },
-  { name: "dayofweek_1", placeholder: "dayofweek_1", type: Boolean, value: 0 },
-  { name: "dayofweek_2", placeholder: "dayofweek_2", type: Boolean, value: 0 },
-  { name: "dayofweek_3", placeholder: "dayofweek_3", type: Boolean, value: 0 },
-  { name: "dayofweek_4", placeholder: "dayofweek_4", type: Boolean, value: 0 },
-  { name: "dayofweek_5", placeholder: "dayofweek_5", type: Boolean, value: 0 },
-  { name: "dayofweek_6", placeholder: "dayofweek_6", type: Boolean, value: 1 },
+  { name: "dayofweek_1", placeholder: "dayofweek_1", type: Number, value: 0 },
+  { name: "dayofweek_2", placeholder: "dayofweek_2", type: Number, value: 0 },
+  { name: "dayofweek_3", placeholder: "dayofweek_3", type: Number, value: 0 },
+  { name: "dayofweek_4", placeholder: "dayofweek_4", type: Number, value: 0 },
+  { name: "dayofweek_5", placeholder: "dayofweek_5", type: Number, value: 0 },
+  { name: "dayofweek_6", placeholder: "dayofweek_6", type: Number, value: 1 },
   {
     name: "type_Additional",
     placeholder: "type_Additional",
-    type: Boolean,
+    type: Number,
     value: 0,
   },
-  { name: "type_Bridge", placeholder: "type_Bridge", type: Boolean, value: 0 },
-  { name: "type_Event", placeholder: "type_Event", type: Boolean, value: 0 },
+  { name: "type_Bridge", placeholder: "type_Bridge", type: Number, value: 0 },
+  { name: "type_Event", placeholder: "type_Event", type: Number, value: 0 },
   {
     name: "type_Holiday",
     placeholder: "type_Holiday",
-    type: Boolean,
+    type: Number,
     value: 0,
   },
   {
     name: "type_Transfer",
     placeholder: "type_Transfer",
-    type: Boolean,
+    type: Number,
     value: 0,
   },
   {
     name: "type_Work Day",
     placeholder: "type_Work Day",
-    type: Boolean,
+    type: Number,
     value: 0,
   },
 ];
@@ -91,20 +91,25 @@ const Form = () => {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    const newValue =
-      type === "number"
-        ? parseFloat(value)
-        : type === "checkbox"
-        ? checked
-        : value;
+    let newValue;
+  
+    if (type === "number") {
+      newValue = parseFloat(value);
+    } else if (type === "checkbox") {
+      // Convert checkboxes to "1" for checked and "0" for unchecked
+      newValue = checked ? 1 : 0;
+    } else {
+      newValue = value;
+    }
+  
     setFormData({ ...formData, [name]: newValue });
   };
+  
 
   const onSubmitData = async (data) => {
-    cconsole.log("Sending data to backend:", data);
     try {
       await handleSubmit(data);
-      navigate("/ProjectInfo");
+      navigate("/");
     } catch (err) {
       alert(err);
     }
@@ -117,31 +122,15 @@ const Form = () => {
         className="w-full max-w-md mx-auto"
       >
         {inputFields.map((field) => (
-          <div className="mb-6 ml-10" key={field.name}>
-            <div>
-              <label className="bg-blue-200 text-black font-bold py-2 px-4 rounded">
-                {field.name}
-              </label>
-            </div>
-
-            {field.type === Boolean ? (
-              <input
-                type="checkbox"
-                name={field.name}
-                defaultChecked={field.value} // Use defaultChecked for checkboxes
-                className="border rounded-md py-2 px-4 my-2"
-                onChange={handleChange}
-              />
-            ) : (
-              <input
-                type={field.type === Number ? "number" : "text"}
-                placeholder={field.placeholder}
-                name={field.name}
-                defaultValue={field.value}
-                className="border rounded-md py-2 px-4 my-2"
-                onChange={handleChange}
-              />
-            )}
+          <div className="mb-3 ml-10" key={field.name}>
+            <InputForm
+              label={field.name}
+              name={field.name}
+              type={field.type === Boolean ? "checkbox" : "number"}
+              defaultValue={field.value}
+              placeholder={field.placeholder}
+              onChange={handleChange}
+            />
           </div>
         ))}
         <div className="text-center">
