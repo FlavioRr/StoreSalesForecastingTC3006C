@@ -27,16 +27,19 @@ def predict():
         if input_features is None:
             return jsonify({'error': 'Invalid input data'}), 400
 
+        # Make a prediction using the model
         prediction = model.predict(input_features)
-        
-        # Convert the NumPy array to a Python list
-        prediction_list = prediction.tolist()
 
-        return jsonify({'prediction': prediction_list})
+        # Extract the first 22 predicted values
+        prediction = prediction[0][:20].tolist()
+
+        # Return the prediction as JSON
+        return jsonify({'prediction': prediction})
+    
     except Exception as e:
         logging.exception("An error occurred during prediction.")
         return jsonify({'error': str(e)}), 500
-
+        
 
 def preprocess_input_data(input_data):
     try:
