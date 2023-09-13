@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect  } from "react";
 import ReactApexChart from "react-apexcharts";
 
 const corporateColors = {
@@ -39,25 +39,20 @@ const options = {
   ],
 };
 
-const initialSeries = [
-  {
-    name: "Ventas",
-    data: [
-      200, 300, 500, 200, 500, 50, 700, 300, 500, 500, 500, 100, 100, 500, 0,
-      20, 500, 500, 500, 500,
-    ],
-  },
-];
-
-const Chart = () => {
+const Chart = ({chartData}) => {
   const [chartType, setChartType] = useState("bar"); // Estado para el tipo de gráfico
   const [chartKey, setChartKey] = useState(0); // Estado para forzar la actualización del gráfico
 
-  // Función para cambiar entre los tipos de gráficos
   const toggleChartType = () => {
     setChartKey(chartKey + 1);
     setChartType(chartType === "bar" ? "line" : "bar");
   };
+
+  useEffect(() => {
+    if (chartData && chartData.prediction) {
+      setChartKey(chartKey + 1);
+    }
+  }, [chartData]);
 
   return (
     <div className="flex-1 p-6 rounded shadow-md bg-white">
@@ -75,7 +70,12 @@ const Chart = () => {
       <ReactApexChart
         key={chartKey} // Esto forzará la actualización del gráfico
         options={options}
-        series={initialSeries}
+        series={[
+            {
+              name: "Ventas",
+              data: chartData && chartData.prediction ? chartData.prediction : [],
+            },
+          ]}
         type={chartType}
         height={350}
       />

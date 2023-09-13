@@ -38,8 +38,11 @@ export const handleSubmit = async (data) => {
         'Content-Type': 'application/json',
       },
     });
-    console.log(response.data);
+    
+    return response.data;
+    
   } catch (error) {
     console.error("Error:", error);
+    throw error;
   }
 };
