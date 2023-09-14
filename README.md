@@ -16,9 +16,11 @@ Se desarrollará un modelo con el objetivo de mejorar la precisión en la predic
 
 ## Nuestro Plan de Analisis
 Link: [Plan de Análisis](https://docs.google.com/document/d/1tmQ7JMXrZ8Goj4j6U5SQN85s1fFLP23tuDbRu2HGQRs/edit?usp=sharing)
-
 ***
 
+## Presentación
+Link: https://docs.google.com/presentation/d/1iLefQ5c00UGdpj9BwXTviKsPt6nGhRHMoAhfJzg3b8o/edit?usp=sharing
+***
 ## Contexto de Normatividades
 
 COMPETITION DATA. "Competition Data" means the data or datasets available from the Competition Website for the purpose of use in the Competition, including any prototype or executable code provided on the Competition Website. The Competition Data will contain private and public test sets. Which data belongs to which set will not be made available to participants.
